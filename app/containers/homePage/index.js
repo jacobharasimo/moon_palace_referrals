@@ -36,13 +36,7 @@ export function HomePage() {
         />
       </Helmet>
       <Box variant="container">
-        <SelectableMap
-          onLocationSelect={location => {
-            console.log(location);
-          }}
-          selectedLocation={{}}
-          locations={locations}
-        />
+        <SelectableMap locations={locations} />
       </Box>
     </Flex>
   );

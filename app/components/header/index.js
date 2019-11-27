@@ -38,9 +38,7 @@ function Header() {
                       px={4}
                       py={2}
                       as={Link}
-                      to={`${Pages.location}${loc.name
-                        .toLowerCase()
-                        .replace(/ /g, '_')}`}
+                      to={Pages.dynamicLocation(loc.name)}
                     >
                       {loc.name}
                     </Text>
@@ -61,9 +59,7 @@ function Header() {
                       px={4}
                       py={2}
                       as={Link}
-                      to={`${Pages.location}${loc.name
-                        .toLowerCase()
-                        .replace(/ /g, '_')}`}
+                      to={Pages.dynamicLocation(loc.name)}
                     >
                       {loc.name}
                     </Text>

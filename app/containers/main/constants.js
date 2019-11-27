@@ -13,10 +13,15 @@ export const LOAD_REPOS = 'boilerplate/App/LOAD_REPOS';
 export const LOAD_REPOS_SUCCESS = 'boilerplate/App/LOAD_REPOS_SUCCESS';
 export const LOAD_REPOS_ERROR = 'boilerplate/App/LOAD_REPOS_ERROR';
 
-export const Pages = {
+const Pages = {
   home: '/',
   book: '/book',
   thingsToDo: '/things_to_do',
   memberBenefits: '/member_benefits',
   location: '/location/',
 };
+
+Pages.dynamicLocation = name =>
+  `${Pages.location}${name.toLowerCase().replace(/ /g, '_')}`;
+
+export { Pages };

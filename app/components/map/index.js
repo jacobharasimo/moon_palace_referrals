@@ -119,6 +119,9 @@ const MapChart = ({
           markers.map(marker => (
             <Marker
               key={marker.name}
+              style={{
+                hover: { cursor: 'pointer' },
+              }}
               coordinates={marker.coordinates}
               onClick={() => {
                 onSelectMarker(marker);
