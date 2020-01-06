@@ -15,6 +15,9 @@ export const LOAD_REPOS_ERROR = 'boilerplate/App/LOAD_REPOS_ERROR';
 
 const Pages = {
   home: '/',
+  map: '/resorts/:resortType',
+  adult: '/resorts/adult',
+  family: '/resorts/family',
   book: '/book',
   thingsToDo: '/things_to_do',
   memberBenefits: '/member_benefits',

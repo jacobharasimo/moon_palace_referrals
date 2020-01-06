@@ -135,7 +135,7 @@ const MapChart = ({
                 style={{
                   fontWeight: 'bold',
                   fontFamily: 'system-ui',
-                  fontSize: '1.5px',
+                  fontSize: '2.5px',
                   textAlign: 'right',
                   fill: '#5D5A6D',
                 }}

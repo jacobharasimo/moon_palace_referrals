@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { Flex, Box, Button, Image, Text } from 'rebass';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -12,6 +12,7 @@ import {
 import { Pages } from '../../containers/main/constants';
 
 function Header() {
+  const { formatMessage } = useIntl();
   const familyLocations = useSelector(makeSelectFamilyLocation);
   const adultLocations = useSelector(makeSelectAdultLocation);
   return (
@@ -21,12 +22,12 @@ function Header() {
         pt={0}
         bg="black"
         src="https://www.moonpalace.com/themes/custom/mooncancun/images/logo.png"
-        alt=""
+        alt={formatMessage(messages.navImage.text)}
       />
       <Box variant="container" as="nav">
         <Flex alignItems="center" as="ul">
           <Box as="li" variant="navItem">
-            <Button variant="link" as={Link} to={Pages.home}>
+            <Button variant="link" as={Link} to={Pages.family}>
               <FormattedMessage {...messages.familyLocations} />
             </Button>
             <Flex as="ul" variant="subNav" flexDirection="column">
@@ -47,7 +48,7 @@ function Header() {
             </Flex>
           </Box>
           <Box as="li" variant="navItem">
-            <Button variant="link" as={Link} to={Pages.home}>
+            <Button variant="link" as={Link} to={Pages.adult}>
               <FormattedMessage {...messages.adultLocations} />
             </Button>
             <Flex as="ul" variant="subNav" flexDirection="column">

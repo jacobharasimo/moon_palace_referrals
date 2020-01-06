@@ -1,8 +1,6 @@
 /**
  * The global state selectors
  */
-import { unionBy } from 'lodash';
-
 import { createSelector } from 'reselect';
 import { initialState } from './reducer';
 
@@ -18,11 +16,14 @@ export const makeSelectAdultLocation = createSelector(
   routerState => routerState.adultLocations,
 );
 
-export const makeSelectLocation = () =>
+export const makeSelectLocation = resortType =>
   createSelector(
     makeSelectAdultLocation,
     makeSelectFamilyLocation,
     (adultLocations, familyLocation) => {
-      return unionBy(adultLocations, familyLocation, 'name');
+      if (resortType === 'family') {
+        return familyLocation;
+      }
+      return adultLocations;
     },
   );

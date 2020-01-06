@@ -7,14 +7,15 @@
  */
 
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { Switch, Route } from 'react-router-dom';
+import { useIntl } from 'react-intl';
 
-import HomePage from '../homePage/Loadable';
+import MapPage from '../mapPage/Loadable';
 import NotFoundPage from '../notFoundPage/Loadable';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
-
+import messages from './messages';
 import GlobalStyle from '../../global-styles';
 import { ThingsToDo } from '../thingsToDo';
 import { Pages } from './constants';
@@ -22,20 +23,23 @@ import { MemberBenefits } from '../memberBenefits';
 import { ResortDetails } from '../resortDetails';
 
 export default function Main() {
+  const { formatMessage } = useIntl();
+
   return (
     <>
       <Helmet
-        titleTemplate="%s | Moon Palace Referral"
-        defaultTitle="Moon Palace Referral"
+        titleTemplate={`%s | ${formatMessage(messages.defaultTitle)}`}
+        defaultTitle={formatMessage(messages.defaultTitle)}
       >
         <meta
           name="description"
-          content="Moon Palace Referrals, your next luxury vacation destination"
+          content={formatMessage(messages.pageDescription)}
         />
       </Helmet>
       <Header />
       <Switch>
-        <Route exact path={Pages.home} component={HomePage} />
+        <Route exact path={Pages.home} component={MapPage} />
+        <Route exact path={Pages.map} component={MapPage} />
         <Route exact path={Pages.thingsToDo} component={ThingsToDo} />
         <Route path={Pages.location} component={ResortDetails} />
         <Route exact path={Pages.memberBenefits} component={MemberBenefits} />
