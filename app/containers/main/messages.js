@@ -11,5 +11,6 @@ export default defineMessages({
   defaultTitle: {
     id: `${scope}.defaultTitle`,
     defaultMessage: 'Moon Palace Referral',
+    'en-CA': 'test',
   },
 });

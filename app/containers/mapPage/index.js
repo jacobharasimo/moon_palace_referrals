@@ -18,6 +18,7 @@ import reducer from './reducer';
 import saga from './saga';
 import { SelectableMap } from '../../components/selectableMap';
 import { makeSelectLocation } from '../main/selectors';
+import { toProperCase } from '../../utils/string';
 
 const key = 'map';
 
@@ -33,7 +34,7 @@ export function MapPage() {
   return (
     <Flex>
       <Helmet>
-        <title>Home Page</title>
+        <title>{toProperCase(resortType)} Resorts</title>
         <meta
           name="description"
           content="Moon Palace Referrals, your next luxury vacation destination"

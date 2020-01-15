@@ -21,6 +21,7 @@ import { ThingsToDo } from '../thingsToDo';
 import { Pages } from './constants';
 import { MemberBenefits } from '../memberBenefits';
 import { ResortDetails } from '../resortDetails';
+import { HomePage } from '../home';
 
 export default function Main() {
   const { formatMessage } = useIntl();
@@ -38,7 +39,7 @@ export default function Main() {
       </Helmet>
       <Header />
       <Switch>
-        <Route exact path={Pages.home} component={MapPage} />
+        <Route exact path={Pages.home} component={HomePage} />
         <Route exact path={Pages.map} component={MapPage} />
         <Route exact path={Pages.thingsToDo} component={ThingsToDo} />
         <Route path={Pages.location} component={ResortDetails} />

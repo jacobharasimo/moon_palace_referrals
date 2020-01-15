@@ -13,13 +13,13 @@ require('@formatjs/intl-pluralrules/dist/locale-data/en'); // Add locale data fo
 require('@formatjs/intl-relativetimeformat/polyfill');
 require('@formatjs/intl-relativetimeformat/dist/locale-data/en'); // Add locale data for de
 
-const enTranslationMessages = require('./translations/en.json');
+const enTranslationMessages = require('./translations/enCA.json');
 
-const DEFAULT_LOCALE = 'en';
+const DEFAULT_LOCALE = 'en-CA';
 
 // prettier-ignore
 const appLocales = [
-  'en',
+  'en-CA',
 ];
 
 const formatTranslationMessages = (locale, messages) => {
@@ -38,7 +38,7 @@ const formatTranslationMessages = (locale, messages) => {
 };
 
 const translationMessages = {
-  en: formatTranslationMessages('en', enTranslationMessages),
+  'en-CA': formatTranslationMessages('en-CA', enTranslationMessages),
 };
 
 exports.appLocales = appLocales;

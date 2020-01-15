@@ -16,14 +16,16 @@ function Header() {
   const familyLocations = useSelector(makeSelectFamilyLocation);
   const adultLocations = useSelector(makeSelectAdultLocation);
   return (
-    <Flex mb={3}>
-      <Image
-        p={3}
-        pt={0}
-        bg="black"
-        src="https://www.moonpalace.com/themes/custom/mooncancun/images/logo.png"
-        alt={formatMessage(messages.navImage.text)}
-      />
+    <Flex>
+      <Link to={Pages.home}>
+        <Image
+          p={3}
+          pt={0}
+          bg="black"
+          src="https://www.moonpalace.com/themes/custom/mooncancun/images/logo.png"
+          alt={formatMessage(messages.navImage.text)}
+        />
+      </Link>
       <Box variant="container" as="nav">
         <Flex alignItems="center" as="ul">
           <Box as="li" variant="navItem">

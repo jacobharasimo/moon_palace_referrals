@@ -2,14 +2,35 @@ import baseTheme from '@rebass/preset';
 import { merge } from 'lodash';
 
 const customTheme = {
-  colors: {},
+  colors: {
+    primary: '#a9733e',
+    charcoal: '#24232B',
+  },
+  radii: {
+    default: 0,
+  },
   buttons: {
+    primary: {
+      fontSize: 2,
+      fontWeight: 'bold',
+      color: 'black',
+      borderWidth: '2px',
+      borderStyle: 'solid',
+      borderColor: 'primary',
+      bg: 'white',
+      borderRadius: 'default',
+      cursor: 'pointer',
+      ':hover': {
+        bg: 'black',
+        color: 'white',
+      },
+    },
     invertLink: {
       borderRadius: 0,
       backgroundColor: 'black',
       color: 'white',
       ':hover': {
-        backgroundColor: 'primary',
+        bg: 'primary',
       },
     },
     link: {
@@ -22,6 +43,13 @@ const customTheme = {
     },
   },
   variants: {
+    card: {
+      boxShadow: 'none',
+    },
+    shadow: {
+      bg: 'background',
+      boxShadow: 'card',
+    },
     primaryButton: {
       background: 'blue',
       color: 'white',
