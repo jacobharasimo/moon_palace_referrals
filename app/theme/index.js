@@ -10,6 +10,33 @@ const customTheme = {
     default: 0,
   },
   buttons: {
+    black: {
+      fontSize: 2,
+      fontWeight: 'bold',
+      color: 'black',
+      borderWidth: '2px',
+      borderStyle: 'solid',
+      borderColor: 'primary',
+      bg: 'white',
+      borderRadius: 'default',
+      cursor: 'pointer',
+      ':hover': {
+        bg: 'black',
+        color: 'white',
+      },
+    },
+    white: {
+      fontSize: 2,
+      fontWeight: 'bold',
+      color: 'black',
+      bg: 'white',
+      borderRadius: 'default',
+      cursor: 'pointer',
+      ':hover': {
+        bg: 'primary',
+        color: 'white',
+      },
+    },
     primary: {
       fontSize: 2,
       fontWeight: 'bold',
@@ -43,6 +70,16 @@ const customTheme = {
     },
   },
   variants: {
+    link: {
+      cursor: 'pointer',
+      color: 'white',
+      textDecoration: 'none',
+    },
+    alignHeight: {
+      flexGrow: '1',
+      alignItems: 'stretch',
+      display: 'flex',
+    },
     card: {
       boxShadow: 'none',
     },

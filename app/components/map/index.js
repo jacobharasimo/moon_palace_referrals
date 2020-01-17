@@ -22,9 +22,12 @@ const MapChart = ({
   markers,
   height,
   width,
+  zoom,
+  center,
   disablePanning,
   disableZooming,
   onSelectMarker,
+  fontSize,
 }) => {
   if (!markers) {
     return null;
@@ -34,8 +37,8 @@ const MapChart = ({
       <ZoomableGroup
         disableZooming={disableZooming}
         disablePanning={disablePanning}
-        zoom={7}
-        center={[-89, 22]}
+        zoom={zoom}
+        center={center}
       >
         <Geographies geography={geoUrl}>
           {({ geographies }) => (
@@ -79,7 +82,7 @@ const MapChart = ({
                           <text
                             style={{
                               fontFamily: 'system-ui',
-                              fontSize: '1px',
+                              fontSize: `${fontSize * 0.875}px`,
                               textAlign: 'right',
                               fill: '#5D5A6D',
                             }}
@@ -99,7 +102,7 @@ const MapChart = ({
                             x={0.25}
                             style={{
                               fontFamily: 'system-ui',
-                              fontSize: '1px',
+                              fontSize: `${fontSize * 0.875}px`,
                               textAlign: 'right',
                               fill: '#5D5A6D',
                             }}
@@ -135,7 +138,7 @@ const MapChart = ({
                 style={{
                   fontWeight: 'bold',
                   fontFamily: 'system-ui',
-                  fontSize: '2.5px',
+                  fontSize: `${fontSize}px`,
                   textAlign: 'right',
                   fill: '#5D5A6D',
                 }}
@@ -152,6 +155,9 @@ MapChart.propTypes = {
   markers: PropTypes.array,
   height: PropTypes.number,
   width: PropTypes.number,
+  zoom: PropTypes.number.isRequired,
+  fontSize: PropTypes.number.isRequired,
+  center: PropTypes.arrayOf(PropTypes.number).isRequired,
   disablePanning: PropTypes.bool,
   disableZooming: PropTypes.bool,
   onSelectMarker: PropTypes.func.isRequired,

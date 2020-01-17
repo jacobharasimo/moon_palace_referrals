@@ -26,7 +26,7 @@ function Header() {
           alt={formatMessage(messages.navImage.text)}
         />
       </Link>
-      <Box variant="container" as="nav">
+      <Box sx={{ zIndex: 999999 }} variant="container" as="nav">
         <Flex alignItems="center" as="ul">
           <Box as="li" variant="navItem">
             <Button variant="link" as={Link} to={Pages.family}>

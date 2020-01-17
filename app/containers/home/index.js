@@ -18,9 +18,13 @@ import slide3 from '../../images/slide/slide-3.jpg';
 import palaceLife from '../../images/palace-life.jpg';
 import { OffsetPromo } from '../../components/promo/offset';
 import { SplitPromo } from '../../components/promo/split';
-import adultResort from '../../images/adult-resort.jpg';
+import adultResort from '../../images/slider/adult/adult_resort.jpg';
+import golf from '../../images/slider/adult/golf.jpg';
+import leBlanc from '../../images/slider/adult/le_blanc_resturant.jpg';
+import losCabos from '../../images/slider/adult/los_cabos.jpg';
 import { Pages } from '../main/constants';
 
+const adultImage = [leBlanc, losCabos, golf, adultResort];
 const familyImages = [bowling, dolphin, playroom, waterslide, wiredLounge];
 
 export const HomePage = () => {
@@ -95,21 +99,25 @@ export const HomePage = () => {
       </Box>
       <Box variant="container" my={2}>
         <Flex flexDirection={['column-reverse', 'row']}>
-          <Box width={[1, 1 / 2]} mr={2}>
+          <Box width={[1, 1 / 2]} mr={2} variant="alignHeight">
             <SplitPromo
-              sliderImages={familyImages}
-              title="Family"
-              bodyCopy="Palace Resorts isn't your normal resort chain, they are an empire of opulence where more is more, only the best is good enough, and options galore dazzle and excite. Catering to guests of all ages, like the amazing Playroom for our tiny guests, our chic WIRED lounge for all the family and much more."
+              transitionTime={900}
               to={Pages.family}
-              buttonText="Family Resorts"
+              sliderImages={familyImages}
+              title={formatMessage(messages.familyResortTitle)}
+              bodyCopy={formatMessage(messages.familyResortBody)}
+              buttonText={formatMessage(messages.familyResortButton)}
             />
           </Box>
-          <Box width={[1, 1 / 2]} ml={2}>
+          <Box width={[1, 1 / 2]} ml={2} variant="alignHeight">
             <SplitPromo
-              promoImage={adultResort}
-              title="Adult"
+              interval={3950}
+              transitionTime={900}
+              sliderImages={adultImage}
               to={Pages.adult}
-              buttonText="Adult Resorts"
+              title={formatMessage(messages.adultResortTitle)}
+              bodyCopy={formatMessage(messages.adultResortBody)}
+              buttonText={formatMessage(messages.adultResortButton)}
             />
           </Box>
         </Flex>

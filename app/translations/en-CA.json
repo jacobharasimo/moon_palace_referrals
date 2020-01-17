@@ -1,0 +1,9 @@
+{
+  "boilerplate.containers.LocaleToggle.en": "english",
+  "boilerplate.containers.MapPage.start_project.header": "Start your next react project in seconds",
+  "boilerplate.containers.MapPage.start_project.message": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "boilerplate.containers.MapPage.tryme.atPrefix": "@",
+  "boilerplate.containers.MapPage.tryme.header": "Try me!",
+  "boilerplate.containers.MapPage.tryme.message": "Show Github repositories by",
+  "boilerplate.containers.NotFoundPage.header": "Page not found."
+}

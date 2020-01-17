@@ -22,6 +22,7 @@ const Pages = {
   thingsToDo: '/things_to_do',
   memberBenefits: '/member_benefits',
   location: '/location/',
+  contact: '/contact',
 };
 
 Pages.dynamicLocation = name =>

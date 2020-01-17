@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { MapChart } from '../map';
 import { Pages } from '../../containers/main/constants';
 
-const SelectableMap = ({ locations, history }) => {
+const SelectableMap = ({ fontSize, locations, history, zoom, center }) => {
   const onMarkerClick = marker => {
     history.push(Pages.dynamicLocation(marker.name));
   };
@@ -37,7 +37,13 @@ const SelectableMap = ({ locations, history }) => {
             )}
           </Box>
           <Box width={2 / 3}>
-            <MapChart onSelectMarker={onMarkerClick} markers={locations} />
+            <MapChart
+              fontSize={fontSize}
+              zoom={zoom}
+              center={center}
+              onSelectMarker={onMarkerClick}
+              markers={locations}
+            />
           </Box>
         </Flex>
       </Box>
@@ -46,6 +52,9 @@ const SelectableMap = ({ locations, history }) => {
 };
 
 SelectableMap.propTypes = {
+  fontSize: PropTypes.number,
+  zoom: PropTypes.number,
+  center: PropTypes.arrayOf(PropTypes.number),
   locations: PropTypes.array,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
@@ -53,6 +62,9 @@ SelectableMap.propTypes = {
 };
 
 SelectableMap.defaultProps = {
+  fontSize: 16,
+  zoom: 7,
+  center: [-89, 22],
   locations: null,
 };
 

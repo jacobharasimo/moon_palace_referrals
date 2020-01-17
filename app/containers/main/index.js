@@ -11,7 +11,7 @@ import { Helmet } from 'react-helmet-async';
 import { Switch, Route } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 
-import MapPage from '../mapPage/Loadable';
+import MapPage from '../familyResorts/Loadable';
 import NotFoundPage from '../notFoundPage/Loadable';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
@@ -22,6 +22,8 @@ import { Pages } from './constants';
 import { MemberBenefits } from '../memberBenefits';
 import { ResortDetails } from '../resortDetails';
 import { HomePage } from '../home';
+import { ContactUs } from '../contactUs';
+import { Book } from '../book';
 
 export default function Main() {
   const { formatMessage } = useIntl();
@@ -42,8 +44,10 @@ export default function Main() {
         <Route exact path={Pages.home} component={HomePage} />
         <Route exact path={Pages.map} component={MapPage} />
         <Route exact path={Pages.thingsToDo} component={ThingsToDo} />
-        <Route path={Pages.location} component={ResortDetails} />
         <Route exact path={Pages.memberBenefits} component={MemberBenefits} />
+        <Route exact path={Pages.contact} component={ContactUs} />
+        <Route exact path={Pages.book} component={Book} />
+        <Route path={Pages.location} component={ResortDetails} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <Footer />
