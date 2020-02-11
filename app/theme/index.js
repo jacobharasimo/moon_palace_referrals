@@ -5,6 +5,7 @@ const customTheme = {
   colors: {
     primary: '#a9733e',
     charcoal: '#24232B',
+    lightGrey: '#F5F5F5',
   },
   radii: {
     default: 0,

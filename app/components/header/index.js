@@ -5,18 +5,15 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import messages from './messages';
 import LocaleToggle from '../../containers/localeToggle';
-import {
-  makeSelectAdultLocation,
-  makeSelectFamilyLocation,
-} from '../../containers/main/selectors';
 import { Pages } from '../../containers/main/constants';
+import { makeSelectAdultLocation, makeSelectFamilyLocation } from '../../containers/resorts/selectors';
 
 function Header() {
   const { formatMessage } = useIntl();
   const familyLocations = useSelector(makeSelectFamilyLocation);
   const adultLocations = useSelector(makeSelectAdultLocation);
   return (
-    <Flex>
+    <Flex bg="white">
       <Link to={Pages.home}>
         <Image
           p={3}

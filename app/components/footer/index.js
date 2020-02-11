@@ -8,7 +8,7 @@ function Footer() {
   const today = new Date();
   const year = today.getFullYear();
   return (
-    <Flex p={3} bg="charcoal" color="white">
+    <Flex mt={2} p={3} bg="charcoal" color="white">
       <Box as="nav" variant="container">
         <Flex as="ul" variant="unstyledList" alignItems="center">
           <Box as="li">

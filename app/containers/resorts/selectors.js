@@ -1,20 +1,23 @@
-/**
- * The global state selectors
- */
 import { createSelector } from 'reselect';
 import { initialState } from './reducer';
 
-export const selectGlobal = state => state.global || initialState;
+const selectHome = state => state.resorts || initialState;
 
 export const makeSelectFamilyLocation = createSelector(
-  selectGlobal,
-  routerState => routerState.familyLocations,
+  selectHome,
+  routerState => routerState.adult.locations,
 );
 
 export const makeSelectAdultLocation = createSelector(
-  selectGlobal,
-  routerState => routerState.adultLocations,
+  selectHome,
+  routerState => routerState.family.locations,
 );
+
+export const makeSelectSliders = resortType =>
+  createSelector(
+    selectHome,
+    state => state[resortType].slides,
+  );
 
 export const makeSelectLocation = resortType =>
   createSelector(

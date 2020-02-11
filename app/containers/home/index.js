@@ -47,7 +47,7 @@ export const HomePage = () => {
           autoPlay
         >
           <Box
-            height={[272, 520]}
+            height={[272, 500]}
             display="flex"
             alignItems="center"
             justifyContent="center"
@@ -59,7 +59,7 @@ export const HomePage = () => {
             />
           </Box>
           <Box
-            height={[272, 520]}
+            height={[272, 500]}
             display="flex"
             flexDirection="column"
             alignItems="center"
@@ -72,7 +72,7 @@ export const HomePage = () => {
             />
           </Box>
           <Box
-            height={[272, 520]}
+            height={[272, 500]}
             display="flex"
             flexDirection="column"
             alignItems="center"
@@ -86,14 +86,12 @@ export const HomePage = () => {
           </Box>
         </Carousel>
       </Box>
-      <Box my={2}>
+      <Box my={2} bg="white" color="black">
         <OffsetPromo
           title={formatMessage(messages.promo1Title)}
           subTitle={formatMessage(messages.promo1SubTitle)}
           bodyCopy={formatMessage(messages.promo1BodyCopy)}
           promoImage={palaceLife}
-          bg="white"
-          color="black"
           p={0}
         />
       </Box>

@@ -151,6 +151,7 @@ const MapChart = ({
     </ComposableMap>
   );
 };
+
 MapChart.propTypes = {
   markers: PropTypes.array,
   height: PropTypes.number,

@@ -10,29 +10,32 @@ import { Helmet } from 'react-helmet-async';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { compose } from 'redux';
-import { Flex, Box } from 'rebass';
+import { Flex, Box, Image } from 'rebass';
+import { Carousel } from 'react-responsive-carousel';
 
 import { useInjectReducer } from '../../utils/injectReducer';
 import { useInjectSaga } from '../../utils/injectSaga';
 import reducer from './reducer';
 import saga from './saga';
 import { SelectableMap } from '../../components/selectableMap';
-import { makeSelectLocation } from '../main/selectors';
 import { toProperCase } from '../../utils/string';
+import { makeSelectLocation, makeSelectSliders } from './selectors';
 
-const key = 'map';
+const key = 'resorts';
 
 export function MapPage() {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
   const { resortType } = useParams();
   const locations = useSelector(makeSelectLocation(resortType));
+  const slides = useSelector(makeSelectSliders(resortType));
+
   useEffect(() => {
     // When initial state username is not null, submit the form to load repos
   }, []);
 
   return (
-    <Flex>
+    <Flex flexDirection="column">
       <Helmet>
         <title>{toProperCase(resortType)} Resorts</title>
         <meta
@@ -40,13 +43,41 @@ export function MapPage() {
           content="Moon Palace Referrals, your next luxury vacation destination"
         />
       </Helmet>
-      <Box variant="container">
-        <SelectableMap
-          center={[-85, 22]}
-          fontSize={1.5}
-          zoom={11}
-          locations={locations}
-        />
+      <Box mb={2}>
+        <Carousel
+          transitionTime={700}
+          showStatus={false}
+          showThumbs={false}
+          infiniteLoop
+          autoPlay
+        >
+          {slides.map(slide => (
+            <Box
+              height={[272, 400]}
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Image
+                height="100%"
+                sx={{ minWidth: '100%', objectFit: 'cover' }}
+                src={slide}
+              />
+            </Box>
+          ))}
+        </Carousel>
+      </Box>
+      <Box my={2} bg="white">
+        <Flex>
+          <Box variant="container">
+            <SelectableMap
+              center={[-85, 22]}
+              fontSize={1.5}
+              zoom={11}
+              locations={locations}
+            />
+          </Box>
+        </Flex>
       </Box>
     </Flex>
   );

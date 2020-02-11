@@ -11,7 +11,7 @@ import { Helmet } from 'react-helmet-async';
 import { Switch, Route } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 
-import MapPage from '../familyResorts/Loadable';
+import MapPage from '../resorts/Loadable';
 import NotFoundPage from '../notFoundPage/Loadable';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
